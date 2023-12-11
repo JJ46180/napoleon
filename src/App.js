@@ -7,6 +7,7 @@ import { MapFnEx2 } from "./components/ex1205/MapFnEx2";
 import { Ex05 } from "./components/ex1206/Ex05";
 import { Ex06 } from "./components/ex1207/Ex06";
 import { Ex07 } from "./components/ex1207/Ex07";
+import { Ex09 } from "./components/1211/Ex09";
 
 const App = () => {
   return (
@@ -32,6 +33,10 @@ const App = () => {
       {/* <Ex06 /> */}
       {/* <Ex07 /> */}
       {/* 1207~09 */}
+
+      {/* 1210 git연습 */}
+
+      <Ex09></Ex09>
     </div>
   );
 };

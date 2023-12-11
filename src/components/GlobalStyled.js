@@ -15,6 +15,10 @@ export const FontSize = {
 };
 // =>디자인작업할 때 반복되는부분이2개 이상이면 컴포넌트를 하나 만들어준다
 
+export const colors = {
+  darkGray: "#1d1d1d",
+};
+
 export const GlobalStyled = createGlobalStyle`
     ${reset}
     *{

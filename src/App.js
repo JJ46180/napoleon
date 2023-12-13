@@ -8,6 +8,7 @@ import { Ex05 } from "./components/ex1206/Ex05";
 import { Ex06 } from "./components/ex1207/Ex06";
 import { Ex07 } from "./components/ex1207/Ex07";
 import { Ex09 } from "./components/1211/Ex09";
+import { Ex11 } from "./components/1213/Ex11";
 
 const App = () => {
   return (
@@ -36,7 +37,10 @@ const App = () => {
 
       {/* 1210 git연습 */}
 
-      <Ex09></Ex09>
+      {/* <Ex09></Ex09> */}
+      {/* 1211 */}
+
+      <Ex11></Ex11>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { data } from "./API";
 
 const Banner = styled.section`
   height: 80vh;
@@ -14,7 +15,7 @@ const Section = styled.section`
 const Con = styled.div`
   width: 45%;
   height: 600px;
-  background-color: lightblue;
+  background: url(${(props) => props.$url});
   box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   &:hover {
@@ -33,11 +34,11 @@ export const Home = () => {
     <div>
       <Banner></Banner>
       <Section>
-        <Con>
-          <Link to={"/sub001"}></Link>
+        <Con $url={data[0].img}>
+          <Link to={"/sub/0"}></Link>
         </Con>
-        <Con>
-          <Link to={"/sub002"}></Link>
+        <Con $url={data[1].img}>
+          <Link to={"/sub/1"}></Link>
         </Con>
       </Section>
     </div>

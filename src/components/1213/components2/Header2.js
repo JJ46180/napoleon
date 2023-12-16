@@ -28,10 +28,10 @@ export const Header2 = () => {
       </Logo>
       <Nav>
         <li>
-          <Link to={"/sub001"}>메뉴1</Link>
+          <Link to={"/sub/0"}>메뉴1</Link>
         </li>
         <li>
-          <Link to={"/sub002"}>메뉴2</Link>
+          <Link to={"/sub/1"}>메뉴2</Link>
         </li>
       </Nav>
     </SHeader>

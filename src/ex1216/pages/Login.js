@@ -47,16 +47,28 @@ const Button = styled.button`
   font-size: 18px;
   font-weight: 600;
   color: white;
+  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
+  cursor: ${(props) => (props.$isActive ? "pointer" : " default")};
 `;
+//조건(삼항)연산자 (100줄)
+// =>앞에서부터 조건문(condition), 물음표(?), 조건문이 참(truthy)일 경우 실행할 표현식(exprIfTrue), 콜론(:), 조건문이 거짓(falsy)일 경우 실행할 표현식(exprIfFalse)이 배치됩니다.
+//condition ? exprIfTrue : exprIfFalse;
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onChange",
+  });
+  // =>값을 입력할때 메세지가 실시간으로변경됨(리액트)
+  // =>자바스크립트의 경우 로그인까지눌러야지 메세지가 반환
+  // =>Ul가 더 좋다 (리액트)
+  console.log(isValid);
+  // =>isValid :유효성 검사 후 boolean 값으로 반환
   // console.log(errors.username.message);
-  console.log(errors?.username?.message);
+  // console.log(errors?.username?.message);
   // =>옵셔널체이닝
   // =>에러가 있다면?그리고 유저네임이 있다면? 그리고 메세지가 있다면?
   //optional chaining 연산자 (?.) 는 체인의 각 참조가 유효한지 명시적으로 검증하지 않고, 연결된 객체 체인 내에 깊숙이 위치한 속성 값을 읽을 수 있다.
@@ -86,12 +98,20 @@ export const Login = () => {
           {...register("password", {
             // required: true,
             required: "비밀번호는 필수입니다",
+            minLength: {
+              value: 8,
+              message: "비밀번호는 8자리 이상 작성해주세요",
+            },
+            pattern: {
+              value: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/,
+              message: "영문,숫자,특수기호를 합쳐서 8자리 이상으로 입력하시오",
+            },
           })}
-          type="password"
+          type="text"
           placeholder="비밀번호"
         ></Input>
         <ErrorMessage message={errors?.password?.message} />
-        <Button>로그인</Button>
+        <Button $isActive={isValid}>로그인</Button>
       </Form>
     </Wrap>
   );
@@ -129,3 +149,14 @@ export const Login = () => {
 // ];
 // arr[0].c.d
 // =>stop을 가져올려면 이렇게 입력
+
+// const {
+//   register,
+//   handleSubmit,
+//   formState: { errors, isValid },
+// } = useForm();
+// =>객체비구조화할당
+// =>useForm()에서 가져온 3가지
+// register,
+// handleSubmit,
+// formState

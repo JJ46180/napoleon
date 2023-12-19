@@ -11,8 +11,8 @@ export const Ex14 = () => {
         <Routes>
           <Route path={"/login"} Component={"Login"} />
         </Routes>
+        <Home></Home>
       </BrowserRouter>
-      <Home></Home>
     </>
   );
 };
